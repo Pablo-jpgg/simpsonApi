@@ -1,0 +1,18 @@
+@import "../../../assets/styles/variables.scss";
+
+.mat-toolbar {
+  background-color: $brown;
+}
+
+img:hover{
+    cursor: pointer;
+}
+
+.toolbar-title {
+    margin-left: 16px; 
+    font-family: 'Arial', sans-serif; 
+    font-size: 24px;
+    font-weight: bold;
+    color: $black; 
+    text-transform: uppercase;
+  }

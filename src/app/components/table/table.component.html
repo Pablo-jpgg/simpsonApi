@@ -1,0 +1,45 @@
+
+<div class="search-saved-container">
+    <div class="search-container">
+      <mat-form-field>
+        <mat-icon matPrefix>search</mat-icon>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Search">
+      </mat-form-field>
+    </div>
+    <mat-form-field class="saved-items-field">
+      <mat-label>Mis Guardados</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let savedItem of savedItems" [value]="savedItem.id">
+          {{ savedItem.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  
+  <div class="mat-elevation-z8">
+    <div class="card-container">
+      <div *ngFor="let element of data" class="custom-card">
+        <mat-card class="example-card">
+          <div class="card-image-container">
+            <img mat-card-image [src]="element.image" alt="Character Image" class="custom-image">
+          </div>
+          <mat-card-content class="custom-card-content">
+            <p><strong>No.:</strong> {{element.position}}</p>
+            <p><strong>Name:</strong> {{element.name}}</p>
+            <button mat-icon-button (click)="toggleSave(element)">
+              <mat-icon *ngIf="!isSaved(element)">bookmark_border</mat-icon>
+              <mat-icon *ngIf="isSaved(element)">bookmark</mat-icon>
+            </button>
+          </mat-card-content>
+    
+        </mat-card>
+        
+      </div>
+    </div>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20, 50, 100]"
+    
+    aria-label="Select page of periodic elements"
+    (page)="getPersonajesPage($event.pageIndex + 1, $event.pageSize)">
+</mat-paginator>
+  </div>
+  
